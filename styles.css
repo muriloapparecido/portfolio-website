@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #FFCB05;
+    background-color: #00274C;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #FFCB05;
+    color: black;
+    padding: 20px;
+    border-bottom: 3px solid #005f99;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* Navigation */
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    background-color: #FFCB05;
+    border-radius: 5px;
+
+}
+
+nav a:hover {
+    background-color: #005f99;
+    border-color: #003f73;
+}
+
+/* Projects */
+h2 {
+    margin-top: 30px;
+    color: #FFCB05;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center; 
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    display: inline-block;
+    color: black;
+    background-color: #FFCB05;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+ul li a:hover {
+    background-color: #005f99;
+    border-color: #003f73;}
