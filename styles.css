@@ -15,7 +15,7 @@ header {
     background-color: #FFCB05;
     color: black;
     padding: 20px;
-    border-bottom: 3px solid #005f99;
+    border-bottom: 3px solid #000000;
 }
 
 .profile-pic {
@@ -53,6 +53,7 @@ nav a:hover {
 h2 {
     margin-top: 30px;
     color: #FFCB05;
+    border-bottom: 1px solid #FFCB05;
 }
 
 ul {
