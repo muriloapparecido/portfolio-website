@@ -91,3 +91,18 @@ ul li a {
 ul li a:hover {
     text-decoration: underline;
 }
+
+.images {
+    border-radius: 5px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 25px; 
+    margin-top: 50px; 
+}
+
+img{
+    width: 250px; 
+    height: auto; 
+    border: solid #FFCB05 2px; 
+}
