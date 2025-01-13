@@ -6,6 +6,8 @@ body {
     line-height: 1.6;
     color: #FFCB05;
     background-color: #00274C;
+    display: flex; 
+    flex-direction: column; 
 }
 
 /* Header */
@@ -16,18 +18,25 @@ header {
     color: black;
     padding: 20px;
     border-bottom: 3px solid #000000;
+    justify-content: center; 
 }
 
 .profile-pic {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    margin-right: 20px;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+p {
+    text-align: center;
+    padding-left: 18%; 
+    padding-right: 18%; 
 }
 
 /* Navigation */
 nav {
-    margin: 20px 0;
+    margin: 25px 0;
     text-align: center;
 }
 
@@ -54,6 +63,8 @@ h2 {
     margin-top: 30px;
     color: #FFCB05;
     border-bottom: 1px solid #FFCB05;
+    text-align: center; 
+    font-size: 28px; 
 }
 
 ul {
@@ -77,7 +88,7 @@ ul li a {
     padding: 10px 20px;
     border-radius: 5px;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    margin: 5px; 
 }
 
 ul li a:hover {
