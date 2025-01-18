@@ -1,6 +1,10 @@
 # Murilo Apparecido's Portfolio Website  
 
-Welcome to my personal portfolio website! This project showcases my journey as a Computer Science student at the University of Michigan and highlights my passion for technology, problem-solving, and innovation.  
+Welcome to my personal portfolio website! This project showcases my journey as a Computer Science student at the University of Michigan and highlights my passion for technology, problem-solving, and innovation. 
+
+## Getting Started  
+
+To view the website, click here https://muriloapparecido.github.io/portfolio-website/ 
 
 ## About the Website  
 
@@ -28,12 +32,3 @@ This website is a dynamic project that will evolve as I:
 - Explore web hosting, deployment, and optimization.  
 
 The site will act as a living record of my growth as a developer and a showcase of my work for future opportunities.  
-
-## Getting Started  
-
-To view the website, clone the repository and open the `index.html` file in your browser:  
-
-```bash
-git clone https://github.com/muriloapparecido/portfolio-website.git  
-cd portfolio-website  
-open index.html  
