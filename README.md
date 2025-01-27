@@ -15,7 +15,8 @@ This portfolio serves as a platform to:
 
 The website currently includes details about:  
 1. **University of Michigan GymPal**: A mobile app to connect students with workout partners based on gym location, workout preferences, and fitness goals.  
-2. **Blackjack Simulator**: A Python-based blackjack game simulation with plans to evolve into a full-fledged web-based game.  
+2. **Blackjack Simulator**: A Python-based blackjack game simulation with plans to evolve into a full-fledged web-based game. 
+3. **Finance Tracker**: A tool designed to help users manage personal budgets, track expenses, and analyze spending habits.  
 
 As I gain more experience and expertise in web development, I will continuously update and improve this site to better reflect my skills, projects, and design ideas.  
 
