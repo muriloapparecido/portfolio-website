@@ -4,75 +4,87 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #FFCB05;
-    background-color: #00274C;
-    display: flex; 
-    flex-direction: column; 
+    color: #3e2723; /* dark brown text */
+    background-color: #fdf6f9; /* light pink/beige */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
 header {
     display: flex;
     align-items: center;
-    background-color: #FFCB05;
-    color: black;
+    justify-content: center;
+    background-color: #000;
+    color: white;
     padding: 20px;
-    border-bottom: 3px solid #000000;
-    justify-content: center; 
+    border-bottom: 3px solid #3e2723;
+    gap: 30px; /* space between text and image */
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    max-width: 700px;
 }
 
 .profile-pic {
     width: 100px;
     height: 100px;
     border-radius: 5px;
-    margin-left: 50px;
+    margin-top: 15px;
+    border: 2px solid #e91e63;
 }
 
+/* Paragraphs */
 p {
     text-align: center;
-    padding-left: 18%; 
-    padding-right: 18%; 
+    padding-left: 18%;
+    padding-right: 18%;
+    margin-top: 20px;
 }
 
 /* Navigation */
 nav {
-    margin: 25px 0;
+    margin: 30px 0;
     text-align: center;
 }
 
 nav a {
     margin: 0 10px;
-    color: black;
+    color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 8px 14px;
+    background-color: #e91e63; /* hot pink */
+    border-radius: 5px;
     border: 2px solid transparent;
     transition: all 0.3s ease;
-    background-color: #FFCB05;
-    border-radius: 5px;
-
 }
 
 nav a:hover {
-    background-color: #005f99;
-    border-color: #003f73;
+    background-color: #c2185b;
+    border-color: #f8bbd0;
 }
 
-/* Projects */
+/* Projects Header */
 h2 {
     margin-top: 30px;
-    color: #FFCB05;
-    border-bottom: 1px solid #FFCB05;
-    text-align: center; 
-    font-size: 28px; 
+    color: #e91e63;
+    border-bottom: 2px solid #f8bbd0;
+    text-align: center;
+    font-size: 28px;
+    padding-bottom: 5px;
 }
 
+/* Project List */
 ul {
     list-style-type: none;
     padding: 0;
     margin: 0 auto;
     max-width: 800px;
-    text-align: center; 
+    text-align: center;
 }
 
 ul li {
@@ -81,16 +93,17 @@ ul li {
 
 ul li a {
     display: inline-block;
-    color: black;
-    background-color: #FFCB05;
+    color: #3e2723;
+    background-color: #fde3ec;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 5px;
     transition: all 0.3s ease;
-    margin: 5px; 
 }
 
 ul li a:hover {
-    background-color: #005f99;
-    border-color: #003f73;}
+    background-color: #e91e63;
+    color: white;
+    border: 1px solid #f8bbd0;
+}
