@@ -1,51 +1,71 @@
-/* General Styles */
+/* ===== General Styles ===== */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #3e2723; /* dark brown text */
-    background-color: #fdf6f9; /* light pink/beige */
+    color: #fce4ec; /* soft pink text */
+    background: #1c1c1c;
     display: flex;
     flex-direction: column;
 }
 
-/* Header */
+/* ===== Header ===== */
 header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000;
-    color: white;
     padding: 20px;
-    border-bottom: 3px solid #3e2723;
-    gap: 30px; /* space between text and image */
+    gap: 30px;
     text-align: left;
+
+    /* Gradient animation */
+    background: linear-gradient(132deg, #000000, #e91e63, #121212, #ff4081, #0a0a0a, #e91e63);
+    background-size: 400% 400%;
+    animation: BackgroundGradient 25s ease infinite;
+
+    color: white;
+    border-bottom: 3px solid #e91e63;
+}
+
+
+@keyframes BackgroundGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 2rem;
     max-width: 700px;
+    font-weight: bold;
 }
 
 .profile-pic {
     width: 100px;
     height: 100px;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-top: 15px;
-    border: 2px solid #e91e63;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(233, 30, 99, 0.4);
+    transition: transform 0.3s ease;
 }
 
-/* Paragraphs */
+.profile-pic:hover {
+    transform: scale(1.08);
+}
+
+/* ===== Paragraphs ===== */
 p {
     text-align: center;
     padding-left: 18%;
     padding-right: 18%;
     margin-top: 20px;
+    font-size: 1.05rem;
 }
 
-/* Navigation */
+/* ===== Navigation ===== */
 nav {
     margin: 30px 0;
     text-align: center;
@@ -56,29 +76,31 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 8px 14px;
-    background-color: #e91e63; /* hot pink */
-    border-radius: 5px;
+    padding: 10px 16px;
+    background: linear-gradient(90deg, #e91e63, #c2185b);
+    border-radius: 25px;
     border: 2px solid transparent;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.3);
 }
 
 nav a:hover {
-    background-color: #c2185b;
+    background: linear-gradient(90deg, #c2185b, #880e4f);
     border-color: #f8bbd0;
 }
 
-/* Projects Header */
+/* ===== Projects Header ===== */
 h2 {
     margin-top: 30px;
-    color: #e91e63;
-    border-bottom: 2px solid #f8bbd0;
+    color: #ff80ab;
     text-align: center;
     font-size: 28px;
     padding-bottom: 5px;
+    border-bottom: 2px solid #f8bbd0;
+    background: transparent;
 }
 
-/* Project List */
+/* ===== Project List ===== */
 ul {
     list-style-type: none;
     padding: 0;
@@ -88,22 +110,25 @@ ul {
 }
 
 ul li {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 ul li a {
     display: inline-block;
     color: #3e2723;
-    background-color: #fde3ec;
+    background: linear-gradient(270deg, #f48fb1, #fce4ec);
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.15);
+    transition: all 0.3s ease, transform 0.2s ease;
 }
 
 ul li a:hover {
-    background-color: #e91e63;
-    color: white;
+    background: linear-gradient(135deg, #ff4081, #b0003a);
+    color: #fff0f6; /* softer white */
     border: 1px solid #f8bbd0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.45);
 }
