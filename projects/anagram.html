@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anagram App Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Anagram</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <p>Anagram is an anonymous group messaging app that lets users communicate freely without revealing their 
+                real identities. Each user is assigned a randomized alias per group chat, so members can track 
+                conversation threads without ever knowing who's behind each message. Built with a Supabase backend, 
+                the app handles authentication, real-time messaging, and group management through a structured 
+                relational database while preserving anonymity on the frontend.
+            </p>
+        </section>
+
+        <section>
+            <h2>What I've Done</h2>
+            <ul>
+                <li>Set up Supabase authentication with email verification, including a forgot password flow and improved account verification emails.</li>
+                <li>Designed a relational database schema with tables for <code>users</code>, <code>groupchats</code>, <code>group_members</code>, and <code>messages</code> with each message tracked by user ID in the backend for safety and moderation, while remaining anonymous to other users.</li>
+                <li>Implemented Row Level Security (RLS) policies in Supabase to ensure users can only access data they're authorized to see.</li>
+                <li>Built real-time messaging using Supabase's live subscriptions, so messages appear instantly across all group members without refreshing.</li>
+                <li>Developed group chat creation and membership management, allowing users to create chats, add contacts, and dynamically load the correct chats per logged-in user.</li>
+                <li>Resolved user authentication bugs and migrated the backend from Firebase to Supabase for more robust data control.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical Stack</h2>
+            <ul>
+                <li><strong>Backend:</strong> Supabase (PostgreSQL, Auth, Realtime)</li>
+                <li><strong>Database:</strong> Relational schema with RLS policies for secure, scoped data access</li>
+                <li><strong>Auth:</strong> Email sign-in with verification and password recovery</li>
+                <li><strong>Real-time:</strong> Supabase live subscriptions for instant message delivery</li>
+                <li><strong>Anonymity Layer:</strong> Auto-generated aliases per group chat; real identity stored only server-side via user ID</li>
+            </ul>
+        </section>
+
+        <section>
+    <h2>Demo</h2>
+    <div style="display: flex; justify-content: center;">
+        <video width="315" controls>
+            <source src="../img/anagram/Anagram_Demo.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+    </main>
+</body>
+</html>

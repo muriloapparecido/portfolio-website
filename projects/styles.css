@@ -58,6 +58,15 @@ body {
     border-color: #f8bbd0;
     transform: scale(1.05);
   }
+
+  .profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top; /* adjust: "center", "top", "50% 20%", etc. */
+  display: block;
+}
   
   /* ===== Main Content ===== */
   main {
