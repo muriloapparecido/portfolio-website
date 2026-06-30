@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>eVTOL Risk-Aware Path Planning</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>eVTOL Risk-Aware Path Planning</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <div>
+                This project, completed as an Undergraduate Research Assistant at the University of Michigan, develops a risk-aware autonomous path planning system for eVTOL (electric Vertical Takeoff and Landing) aircraft operating over dense urban environments.
+                The system models third-party ground casualty risk for a Chicago flight corridor by combining population density data, building coverage ratios, and a ballistic descent model for vehicle failure scenarios.
+                Using Theta* any-angle path planning with a tunable risk-distance cost function, the system computes flight corridors that meaningfully reduce expected casualties with minimal added flight distance.
+                The work was presented as a poster at the UROP Symposium and won a blue ribbon, awarded by a judge for best poster presentation and research.
+            </div>
+        </section>
+
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>60,701-cell geospatial risk surface over Chicago at 100m resolution, built from 2021 LandScan population data and building coverage ratios.</li>
+                <li>Monte Carlo ballistic descent model simulating vehicle failure scenarios using Joby S4 aircraft parameters.</li>
+                <li>Theta* any-angle path planning with a blended risk-distance cost function (tunable via a risk-weighting parameter λ).</li>
+                <li>Computed eVTOL corridors achieving 60–80% casualty risk reduction at only 10–20% added flight distance versus shortest-path routing.</li>
+                <li>CA-ANN (Cellular Automata–Artificial Neural Network) model forecasting population density and building coverage for 2030 and 2035.</li>
+                <li>Forward-looking risk surfaces generated from population forecasts, with Theta* re-run on all three time snapshots to compare route efficiency over time.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technology Stack</h2>
+            <ul>
+                <li><strong>Language:</strong> Python</li>
+                <li><strong>Geospatial Processing:</strong> GeoPandas, Rasterio</li>
+                <li><strong>Scientific Computing:</strong> NumPy, SciPy, scikit-learn</li>
+                <li><strong>Visualization:</strong> Matplotlib</li>
+                <li><strong>Data Sources:</strong> LandScan population data, Google Earth Engine</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Methodology</h2>
+            <ul>
+                <li>Built a three-script pipeline: grid generation, path planning, and future risk prediction.</li>
+                <li>Modeled ballistic debris impact zones using Monte Carlo simulation over vehicle failure scenarios.</li>
+                <li>Compared route efficiency across multiple risk-tolerance settings to characterize the risk-distance tradeoff.</li>
+                <li>Validated findings against existing aviation risk literature, including BCR shelter factor modeling.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Recognition</h2>
+            <p>Presented as a poster at the UROP Symposium (University of Michigan League) and awarded a blue ribbon, awarded by a judge for best poster presentation and research.</p>
+        </section>
+    </main>
+</body>
+</html>
