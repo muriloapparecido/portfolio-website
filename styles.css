@@ -123,6 +123,8 @@ ul li a {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(233, 30, 99, 0.15);
     transition: all 0.3s ease, transform 0.2s ease;
+    width: 350px; 
+    height: auto; 
 }
 
 ul li a:hover {
