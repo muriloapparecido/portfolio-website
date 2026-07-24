@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Codebase Q&A Agent</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Codebase Q&A Agent</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <div>
+                The Codebase Q&A Agent is a local RAG (Retrieval-Augmented Generation) system that lets you ask natural language questions about any codebase and get cited, file specific answers.
+                Point it at a local repository, let it ingest the source files, then ask questions like "where is the authentication logic?" or "how does the save function work?" 
+                and it returns answers with exact file paths and line numbers.
+                Built from scratch without LangChain, the system implements a custom chunking pipeline, hybrid semantic and keyword search, and streaming ingestion with real-time progress via Server-Sent Events.
+            </div>
+        </section>
+
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>Multi-repository support — add multiple repositories and switch between isolated chat sessions, each with its own conversation history.</li>
+                <li>Real-time ingestion progress — streaming progress bar powered by Server-Sent Events, with cancel support mid-ingest.</li>
+                <li>Hybrid search — semantic vector similarity and exact keyword matching run in parallel, merged via a score based ranking system.</li>
+                <li>Query rewriting — an LLM-based rewriter converts natural language questions into code focused search queries before retrieval.</li>
+                <li>Cited answers — every response references the source file and line numbers the answer was derived from.</li>
+                <li>Configurable ingestion — adjust supported file extensions and skipped directories per session, then re-ingest with one click.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <ul>
+                <li><strong>Ingestion:</strong> Walks the repository file tree, chunks source files into overlapping 40-line segments, and stores them with file path and line number metadata in a local ChromaDB vector database.</li>
+                <li><strong>Query rewriting:</strong> The user's natural language question is rewritten into a code-focused search phrase using GPT-4o-mini before retrieval.</li>
+                <li><strong>Hybrid retrieval:</strong> Semantic vector search and exact keyword matching on camelCase identifiers run in parallel. Chunks found by both methods receive a higher score and rank first.</li>
+                <li><strong>Answer generation:</strong> The top-ranked chunks are passed as context to GPT-4o-mini, which returns a cited answer grounded only in the retrieved code.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Why Hybrid Search?</h2>
+            <div>
+                Semantic search alone fails for exact code identifier lookups. Function names like <code>handleCreateColumn</code> or <code>handleIngest</code> have no natural language meaning that embeddings can bridge to from a user's question.
+                During development, the target chunk consistently failed to appear in the top 20 semantic results despite being correctly indexed.
+                Adding keyword matching as a parallel retrieval path and boosting chunks found by both methods fixed this retrieval failure entirely.
+            </div>
+        </section>
+
+        <section>
+            <h2>Technology Stack</h2>
+            <ul>
+                <li><strong>Backend:</strong> Python, FastAPI</li>
+                <li><strong>Vector Database:</strong> ChromaDB (local persistent mode)</li>
+                <li><strong>LLM:</strong> OpenAI GPT-4o-mini</li>
+                <li><strong>Frontend:</strong> React, TypeScript, Vite</li>
+                <li><strong>Streaming:</strong> Server-Sent Events (SSE)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Running Locally</h2>
+            <div>
+                This tool runs locally so each user points it at their own codebase using its absolute path and supplies their own OpenAI API key.
+                Clone the repository, install backend dependencies with <code>pip install -r requirements.txt</code>, add your key to a <code>.env</code> file, start the FastAPI server, then run the React frontend with <code>npm run dev</code>.
+                Full setup instructions are in the README.
+            </div>
+            <div class="btn-container">
+                <a href="https://github.com/muriloapparecido/QnA" target="_blank" rel="noopener noreferrer">
+                    <button type="button">View on GitHub</button>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Demo</h2>
+            <div>
+                <img style="width:800px;" src="https://cdn.loom.com/sessions/thumbnails/1d0712dcf6334a5aa8ef4cd294c0c339-9c14c55b51c064b6-full-play.gif#t=0.1">
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
