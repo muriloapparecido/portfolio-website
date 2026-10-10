@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>A2 Pulse</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>A2 Pulse</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Overview</h2>
+            <div>
+                A2 Pulse is a voice-first local briefing app that turns Ann Arbor's scattered information into one personal, one-minute brief of your week.
+                U-M events, venue calendars, road closures, transit detours and City Council items normally live in a dozen separate places; A2 Pulse pulls them into a single knowledge graph and ranks what touches you based on where you live, how you commute and what you care about.
+                It was built in 24 hours by a team of three at the JacHacks A2Tech hackathon (Local Impact track) at the University of Michigan, using Jac, an AI-native programming language, for about 89% of the code.
+            </div>
+        </section>
+
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>My Monday voice brief: a one-minute spoken summary of the five things that matter most to you this week, each with why it matters and what to do, read aloud by ElevenLabs in the voice you choose.</li>
+                <li>Explainable ranking: every item in the brief says why it was picked, like a lane closure on your bike route or an event from a club you follow.</li>
+                <li>Interactive map: events, clubs, road closures and council items on Google Maps, filterable by category, price, day and distance, or by typing a request like "free music near campus".</li>
+                <li>Graph explorer: browse the knowledge graph by places, topics and hosts, and open a detail card on any node.</li>
+                <li>Feedback loop: thumbs up or down on a brief item adjusts that user's weights for the next brief.</li>
+                <li>Live sync: every time the app opens, it pulls live events from five local sources, including Happening @ Michigan, The Ark, UMS and Eventbrite.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <ul>
+                <li><strong>Knowledge graph:</strong> The city is modeled as Jac nodes (places, venues, events, organizers, categories, closures, council items and users) connected by typed edges like <code>LivesAt</code>, <code>CommutesVia</code>, <code>InterestedIn</code>, <code>Follows</code> and <code>AffectsRoute</code>.</li>
+                <li><strong>Walker-based ranking:</strong> A <code>GenerateBrief</code> walker starts at the user and walks outward along their home, commute route, interests and followed groups, scoring every item it reaches and recording the reason for each score.</li>
+                <li><strong>Language generation:</strong> Jac's byLLM functions write the top five items into a natural spoken brief and turn typed requests into map filters, with template and keyword fallbacks so the app works without an LLM.</li>
+                <li><strong>Voice:</strong> The brief is cleaned up for speech (times, dates and abbreviations spelled out) and sent to ElevenLabs for text-to-speech.</li>
+                <li><strong>Live ingestion:</strong> Per-source parsers pull calendar APIs, embedded page data and the U-M events JSON feed into the graph, de-duplicating events on each sync.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>My Role</h2>
+            <ul>
+                <li>Built the Happening @ Michigan ingestion pipeline: fetching two weeks of the U-M events feed, keeping only events that haven't ended (including multi-day events), and ingesting 600+ campus events per sync.</li>
+                <li>Geocoded every event's building through OpenStreetMap Nominatim with a persistent cache, fixing a bug that stacked every U-M event on a single campus pin.</li>
+                <li>Made sync resilient: falling back to the last good feed when Cloudflare returned HTTP 403, backing off on rate limits (HTTP 429), and adding a server-side guard so overlapping requests never run parallel syncs.</li>
+                <li>Moved calendar sync to app startup, with a version counter that refreshes the map and graph views when new events arrive.</li>
+                <li>Resolved merge conflicts across two Jac compiler versions to integrate my features into the team's main branch, and wrote the project README.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technology Stack</h2>
+            <ul>
+                <li><strong>Language:</strong> Jac (graph model, walkers, API endpoints and UI), Python</li>
+                <li><strong>AI:</strong> Jac byLLM (any LiteLLM-supported model)</li>
+                <li><strong>Voice:</strong> ElevenLabs text-to-speech</li>
+                <li><strong>Maps:</strong> Google Maps JavaScript API, Google Roads API</li>
+                <li><strong>Geodata:</strong> OpenStreetMap Nominatim (geocoding), OSRM (routing)</li>
+                <li><strong>Frontend:</strong> Jac client components, jac-shadcn, Tailwind CSS</li>
+                <li><strong>Hosting:</strong> JacHammer</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Links</h2>
+            <div>
+                The code is public in the hackathon's GitHub organization. Road closures, transit detours and council items are demo data but events are live.
+            </div>
+            <div class="btn-container">
+                <a href="https://github.com/A2Tech360/A2-Pulse" target="_blank" rel="noopener noreferrer">
+                    <button type="button">View on GitHub</button>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Demo</h2>
+            <div>
+                <iframe
+                    style="width:800px; max-width:100%; aspect-ratio:16/9; border:0;"
+                    src="https://www.youtube.com/embed/RZokUQLPmc0"
+                    title="A2 Pulse demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
